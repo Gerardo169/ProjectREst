@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+-<definitions xmlns:tns2="BTWorkFlow_Gx80" xmlns:tns1="http://uy.com.dlya.bantotal/BTService/" xmlns:tns3="http://uy.com.dlya.bantotal/BTSOA/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdlns="http://tempuri.org/action/" xmlns:tns="http://tempuri.org/action/" targetNamespace="http://tempuri.org/action/" name="wsBTConsultaTIN">
+
+
+-<types>
+
+
+-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://uy.com.dlya.bantotal/BTService/" elementFormDefault="qualified" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+
+<import namespace="http://uy.com.dlya.bantotal/BTSOA/"/>
+
+<import namespace="BTWorkFlow_Gx80"/>
+
+
+-<complexType name="BTExtReq">
+
+
+-<all>
+
+<element name="Canal" type="xsd:string"> </element>
+
+<element name="Requerimiento" type="xsd:string"> </element>
+
+<element name="Usuario" type="xsd:string"> </element>
+
+<element name="Token" type="xsd:string"> </element>
+
+</all>
+
+</complexType>
+
+
+-<complexType name="BTErroresNegocio">
+
+
+-<sequence>
+
+<element name="BTErrorNegocio" type="tns1:BTErrorNegocio" maxOccurs="unbounded" minOccurs="0"> </element>
+
+</sequence>
+
+</complexType>
+
+
+-<complexType name="BTErrorNegocio">
+
+
++<all>
+
+</complexType>
+
+</schema>
+
+
+-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tempuri.org/action/" elementFormDefault="qualified" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+
+<import namespace="http://uy.com.dlya.bantotal/BTSOA/"/>
+
+<import namespace="http://uy.com.dlya.bantotal/BTService/"/>
+
+<import namespace="BTWorkFlow_Gx80"/>
+
+
+-<element name="wsBTConsultaTIN.Execute">
+
+
+-<complexType>
+
+
+-<sequence>
+
+<element name="Extreq" type="tns1:BTExtReq" maxOccurs="1" minOccurs="1"/>
+
+<element name="Canal" type="xsd:string" maxOccurs="1" minOccurs="1"/>
+
+<element name="Idcamara" type="xsd:short" maxOccurs="1" minOccurs="1"/>
+
+<element name="Cciordenante" type="xsd:string" maxOccurs="1" minOccurs="1"/>
+
+<element name="Moneda" type="xsd:short" maxOccurs="1" minOccurs="1"/>
+
+<element name="Importe" type="xsd:double" maxOccurs="1" minOccurs="1"/>
+
+<element name="Codigotransaccion" type="xsd:short" maxOccurs="1" minOccurs="1"/>
+
+<element name="Bancodestino" type="xsd:short" maxOccurs="1" minOccurs="1"/>
+
+<element name="Sucursaldestino" type="xsd:short" maxOccurs="1" minOccurs="1"/>
+
+<element name="Tarjeta" type="xsd:string" maxOccurs="1" minOccurs="1"/>
+
+<element name="Ccibeneficiario" type="xsd:string" maxOccurs="1" minOccurs="1"/>
+
+<element name="Erroresnegocio" type="tns1:BTErroresNegocio" maxOccurs="1" minOccurs="1"/>
+
+</sequence>
+
+</complexType>
+
+</element>
+
+
+-<element name="wsBTConsultaTIN.ExecuteResponse">
+
+
+-<complexType>
+
+
+-<sequence>
+
+<element name="Extreq" type="tns1:BTExtReq" maxOccurs="1" minOccurs="1"/>
+
+<element name="Tipodocbeneficiario" type="xsd:short" maxOccurs="1" minOccurs="1"/>
+
+<element name="Documentobeneficiario" type="xsd:string" maxOccurs="1" minOccurs="1"/>
+
+<element name="Nombrebeneficiario" type="xsd:string" maxOccurs="1" minOccurs="1"/>
+
+<element name="Direccionbeneficiario" type="xsd:string" maxOccurs="1" minOccurs="1"/>
+
+<element name="Telefonobeneficiario" type="xsd:int" maxOccurs="1" minOccurs="1"/>
+
+<element name="Movilbeneficiario" type="xsd:string" maxOccurs="1" minOccurs="1"/>
+
+<element name="Mismotitular" type="xsd:string" maxOccurs="1" minOccurs="1"/>
+
+<element name="Idtransferencia" type="xsd:string" maxOccurs="1" minOccurs="1"/>
+
+<element name="Itf" type="xsd:double" maxOccurs="1" minOccurs="1"/>
+
+<element name="Comisionoriginante" type="xsd:double" maxOccurs="1" minOccurs="1"/>
+
+<element name="Comisionbeneficiario" type="xsd:double" maxOccurs="1" minOccurs="1"/>
+
+<element name="Mpe001idl" type="xsd:int" maxOccurs="1" minOccurs="1"/>
+
+<element name="Codrespuesta" type="xsd:string" maxOccurs="1" minOccurs="1"/>
+
+<element name="Dscrespuesta" type="xsd:string" maxOccurs="1" minOccurs="1"/>
+
+<element name="Erroresnegocio" type="tns1:BTErroresNegocio" maxOccurs="1" minOccurs="1"/>
+
+</sequence>
+
+</complexType>
+
+</element>
+
+</schema>
+
+</types>
+
+
+-<message name="wsBTConsultaTIN.ExecuteSoapIn">
+
+<part name="parameters" element="tns:wsBTConsultaTIN.Execute"/>
+
+</message>
+
+
+-<message name="wsBTConsultaTIN.ExecuteSoapOut">
+
+<part name="parameters" element="tns:wsBTConsultaTIN.ExecuteResponse"/>
+
+</message>
+
+
+-<portType name="wsBTConsultaTINSoapPort">
+
+
+-<operation name="Execute">
+
+<input message="wsdlns:wsBTConsultaTIN.ExecuteSoapIn"/>
+
+<output message="wsdlns:wsBTConsultaTIN.ExecuteSoapOut"/>
+
+</operation>
+
+</portType>
+
+
+-<binding name="wsBTConsultaTINSoapBinding" type="wsdlns:wsBTConsultaTINSoapPort">
+
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+
+
+-<operation name="Execute">
+
+<soap:operation soapAction="http://tempuri.org/action/action/AWSBTCONSULTATIN.Execute"/>
+
+
+-<input>
+
+<soap:body use="literal"/>
+
+</input>
+
+
+-<output>
+
+<soap:body use="literal"/>
+
+</output>
+
+</operation>
+
+</binding>
+
+
+-<service name="wsBTConsultaTIN">
+
+
+-<port name="wsBTConsultaTINSoapPort" binding="wsdlns:wsBTConsultaTINSoapBinding">
+
+<soap:address location="https://172.20.6.15:9443/desarrollo/servlet/com.dlya.bantotal.awsbtconsultatin"/>
+
+</port>
+
+</service>
+
+</definitions>
